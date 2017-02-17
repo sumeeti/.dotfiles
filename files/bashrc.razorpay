@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Terminal jump
 alias razorpay="cd ~/workplace/razorpay/api"
 alias dashboard="cd ~/workplace/razorpay/dashboard"

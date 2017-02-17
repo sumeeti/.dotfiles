@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Geddit? Geddit? DIGITAL OCEAN
 # No, I don't own that, it's overridden in vhosts
 alias boondh="ssh harman@thatharmansingh.com"

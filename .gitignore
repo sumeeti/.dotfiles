@@ -1,2 +1,4 @@
+#!/bin/sh
+
 # Secrets and stuff
 files/bashrc.vars

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Shortcut to download subtitles
 # https://github.com/manojmj92/subtitle-downloader/blob/master/subtitle-downloader.py
 alias subtitle="python /usr/local/bin/subtitle-downloader.py"

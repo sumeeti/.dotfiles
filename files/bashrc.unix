@@ -1,3 +1,5 @@
+#!/bin/sh
+
 #Terminal be pretty one day
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx

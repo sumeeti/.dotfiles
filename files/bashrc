@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Pretty
 source_if() {
   if [ -f $1 ]; then
