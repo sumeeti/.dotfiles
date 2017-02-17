@@ -9,6 +9,10 @@ source_if ~/.git-completion.bash
 # Github PAT
 # Moved to .vars
 
+function git_branch() {
+	git rev-parse --abbrev-ref HEAD 2> /dev/null
+}
+
 alias gs="git status"
 alias GS="git status"
 alias gd="git diff"
@@ -25,12 +29,7 @@ alias gpom="git pull origin master"
 alias gpo="git push origin $(git_branch)"
 alias gmm="git merge master"
 
-
 # Makes my git prompt beautiful
-function git_branch() {
-	git rev-parse --abbrev-ref HEAD 2> /dev/null
-}
-
 function git_branch_paran() {
   git rev-parse 2> /dev/null 1>&2 && echo "(`git_branch`)"
 }
