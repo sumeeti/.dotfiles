@@ -1,0 +1,45 @@
+# Geddit? Geddit? DIGITAL OCEAN
+# No, I don't own that, it's overridden in vhosts
+alias boondh="ssh harman@thatharmansingh.com"
+
+# VM scripts
+alias gossh="ssh harman@139.59.39.63"
+#mount remote vm using sshfs
+mountvm(){
+	if [ $# -eq 0 ]
+		#then echo "Usage: ${FUNCNAME[0]} [MOUNTING_POINT]"
+		then
+			if [[ -n $(ls ~/workplace/vm) ]]
+				then
+					echo "~/workplace/vm is already a mount point. Unmounting that first."
+					umount ~/workplace/vm
+			fi
+			sshfs -o follow_symlinks,transform_symlinks harman@139.59.39.63:/home/harman ~/workplace/vm
+			echo "Moving to mount point..."
+			cd ~/workplace/vm;
+		else
+			sshfs -o follow_symlinks,transform_symlinks harman@139.59.39.63:/home/harman $1
+			cd $1
+	fi
+}
+unmountvm(){
+	if [[ -n $(ls ~/workplace/vm) ]]
+		then
+			umount ~/workplace/vm
+		else
+			echo "~/workplace/vm is not a mount point."
+	fi
+}
+
+################################################################################################
+
+# Ruby something
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Load RVM into a shell session *as a function*
+# Crazy, right?
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# ...I don't actually remember what I needed this for.
+alias virtualenv3='~/Library/Python/3.4/bin/virtualenv'
+

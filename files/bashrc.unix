@@ -1,0 +1,52 @@
+#Terminal be pretty one day
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+# I can think of no reason why this should be a small number
+export HISTSIZE=999999999999999999999999
+export HISTFILESIZE=999999999999999999999999
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# How  did anyone function without this?
+alias diff='colordiff'
+
+# Look up IPs easily
+lookup(){
+	whois $1
+	curl -X GET "https://ipinfo.io/$1"
+	echo
+}
+
+# -.-
+alias CD="cd"
+
+# Make dir and cd into it. Looks like gaali but isn't.
+mkcd () { mkdir -p "$@" && cd "$@"; }
+
+# Gently murder the nice apps
+close(){
+	if [ $# -eq 0 ]
+		then echo "Usage: ${FUNCNAME[0]} [PATTERN]"
+	elif [[ -n $(pgrep $1) ]]
+		then kill $(pgrep $1); echo "Quit $1."
+	else
+		echo "No instances of $1 open."
+	fi
+}
+
+# Brutally extinguish all processes that match a pattern
+hunt(){
+	if [ $# -eq 0 ]
+		then echo "Usage: ${FUNCNAME[0]} [PATTERN]"
+	elif [[ -n $(pgrep $1) ]]
+		then sudo kill -9 $(pgrep $1); echo "$1 has been taken care of."
+	else
+		echo "ERROR: No matching processes. What are you hunting?"
+	fi
+}
+
+# Find out who you want to kill
+alias wtf="ps ax -o user,pid,%cpu,%mem,tty,start,time,command | sed 1d | sort -nrk +4 | head | cut -c -181"
+
+# Host directories
+alias webserver="python -m SimpleHTTPServer"

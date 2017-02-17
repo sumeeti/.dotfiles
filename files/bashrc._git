@@ -1,0 +1,39 @@
+# https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+source_if ~/.git-completion.bash
+
+#######
+# Github PAT
+# Moved to .vars
+
+alias gs="git status"
+alias GS="git status"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias ga="git add"
+alias gl="git log"
+alias gb="git branch"
+alias gcm="git commit -m"
+alias gco="git checkout"
+alias gstash="git stash"
+alias gp="git pull"
+alias gpom="git pull origin master"
+alias gmm="git merge master"
+
+function gpo() {
+	branch=$(git_branch)
+	git push origin $branch
+}
+
+function git_branch_paran() {
+  git rev-parse 2> /dev/null 1>&2 && echo "(`git_branch`)"
+}
+
+function git_branch() {
+	git rev-parse --abbrev-ref HEAD 2> /dev/null
+}
+
+function prompt(){
+  PS1="\[\033[01;34m\]\u\[\033[01;37m\]@\h\[\033[01;32m\] \W $(git_branch_paran)\[\033[00m\] > "
+}
+
+export PROMPT_COMMAND=prompt

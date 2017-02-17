@@ -1,0 +1,69 @@
+# Terminal jump
+alias razorpay="cd ~/workplace/razorpay/api"
+alias dashboard="cd ~/workplace/razorpay/dashboard"
+
+# Gogogo
+alias gocodebase="cd ~/workplace/razorpay/api; sublime .;"
+
+# CLI
+alias tinker="razorpay; php artisan tinker;"
+
+#
+ulimit -S -n 2700
+
+# Clears all logged info in razorpay/api
+function clear_log() {
+	> /Users/harmansingh/workplace/razorpay/api/storage/logs/trace.log
+	> /Users/harmansingh/workplace/razorpay/api/storage/logs/laravel.log
+	> /Users/harmansingh/workplace/razorpay/api/storage/logs/cron.log
+	> /Users/harmansingh/workplace/razorpay/api/storage/logs/instance.json
+}
+
+#reach office and be lazy immediately
+gorazorpay_gogogo(){
+	gocodebase
+
+	#run tests in new terminal window
+	# osascript -e '
+	# tell application "Terminal"
+	# 	do script "cd ~/workplace/razorpay/api; phpunit;"
+	# end tell '
+
+	chrome "https://mail.google.com/mail/u/1/#inbox" \
+			"https://github.com/razorpay/api/pulls" \
+			"https://splunk-mumbai.razorpay.com/en-US/app/search/api_errors?earliest=0&latest="
+
+	open_working
+
+	open /Applications/Slack.app
+	open /Applications/Spotify.app
+	open /Applications/Franz.app
+}
+
+# Nonsense that doesn't really work
+# 
+update_working() {
+	WHAT_IM_WORKING_ON=()
+	while read -r line; do WHAT_IM_WORKING_ON+=($line); done < ~/.pulls
+}
+WHAT_IM_WORKING_ON=()
+update_working
+working() {
+	echo $1 >> ~/.pulls
+	sort -u ~/.pulls > ~/.pulls.tmp
+	cat ~/.pulls.tmp > ~/.pulls
+	rm ~/.pulls.tmp
+	update_working
+}
+notworking() {
+	sed '/$1/d' ~/.pulls > ~/.pulls.tmp
+	cat ~/.pulls.tmp > ~/.pulls
+	rm ~/.pulls.tmp
+	update_working
+}
+open_working() {
+	for t in "${WHAT_IM_WORKING_ON[@]}"
+	do
+		chrome "https://github.com/razorpay/api/pull/$t"
+	done
+}

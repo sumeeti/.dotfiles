@@ -1,0 +1,101 @@
+#shortcut to ssh
+# alias gossh="ssh dev@10.1.6.116"
+alias tunnel="osascript ~/.tunnelblick-housing.scpt"
+
+# tunnel(){
+# 	osacript -e "tell application \"Tunnelblick\""
+# 	osacript -e "    connect \"housing-bridged\""
+# 	osacript -e "end tell"
+# }
+
+# #mount remote housing vm using sshfs
+# mountvm(){
+# 	if [ $# -eq 0 ]
+# 		#then echo "Usage: ${FUNCNAME[0]} [MOUNTING_POINT]"
+# 		then
+# 			if [[ -n $(ls ~/workspace/vm) ]]
+# 				then
+# 					echo "~/workspace/vm is already a mount point. Unmounting that first."
+# 					umount ~/workspace/vm
+# 			fi
+# 			sshfs -o follow_symlinks,transform_symlinks dev@harmans.housing.com:/home/dev ~/workspace/vm
+# 			echo "Moving to mount point..."
+# 			cd ~/workspace/vm;
+# 		else
+# 			sshfs -o follow_symlinks,transform_symlinks dev@harmans.housing.com:/home/dev $1
+# 			cd $1
+# 	fi
+# }
+# unmountvm(){
+# 	if [[ -n $(ls ~/workspace/vm) ]]
+# 		then
+# 			umount ~/workspace/vm
+# 		else
+# 			echo "~/workplace/vm is not a mount point."
+# 	fi
+# }
+
+#open codebase in sublime
+# repo(){
+# 	if [[ $1 -eq 1 ]]
+# 	then
+# 		echo regions.clone
+# 	elif [[ $1 -eq 2 ]]
+# 	then
+# 		echo regions.testing
+# 	else
+# 		echo regions.main
+# 	fi
+# }
+# gocodebase(){
+# 	rep=`repo $1`
+# 	#TODO This assumes mountvm has been run
+# 	if [[ -n $(ls ~/workspace/vm) ]]
+# 		then
+# 			sublime "~/workspace/vm/${rep}"
+# 		else
+# 			echo "Codebase isn't mounted. Mounting now."
+# 			mountvm
+# 			sublime "~/workspace/vm/${rep}"
+# 	fi
+# 	#sublime ~/workspace/vm/housing-rails
+# }
+
+# gobrowsers(){
+# 	#open work browser
+# 	open -a safari https://mail.google.com/mail/u/0/#inbox https://housing-product.slack.com/messages/regions/ https://github.com https://housing.mingle.thoughtworks.com/projects/regions/overview https://rpm.newrelic.com/accounts/273104/applications/12277824/traced_errors
+# 	#https://www.pivotaltracker.com/n/projects/1400840
+# 	#open dev broswer
+# 	#open -a /Applications/Google\ Chrome.app http://harmans.housing.com:9200 http://harmans.housing.com:4000/in/rent
+# }
+
+# #reach office and be lazy immediately
+# gohousing_gogogo(){
+
+# 	#clean up first
+# 	unmountvm
+# 	close Sublime
+# 	close Chrome
+# 	close Safari
+# 	close Tunnel
+
+# 	#mount vm to disk
+# 	mountvm
+
+# 	#ssh vm in new terminal window
+# 	osascript -e '
+# 	tell application "Terminal"
+# 		do script "gossh"
+# 	end tell '
+
+# 	gocodebase
+# 	gobrowsers
+# }
+
+#visualize polygons using geojsonlint
+plot_polygon(){
+	#assumes you've run st_asgeojson(st_transform(polygon,4326)) in psql and redirected the output to snippets/plot.geojson
+	#TODO Handle multiple polygon geojsons
+	grep {.*} ~/workspace/vm/snippets/plot.geojson | pbcopy
+	open -a /Applications/Google\ Chrome.app http://geojsonlint.com/ #http://jsonlint.com/
+}

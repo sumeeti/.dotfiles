@@ -1,0 +1,29 @@
+# Horrible and slow, use ctrl+shift+power instead.
+alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+
+# Tmux on Sierra throws ugly errors unless I do this
+# wtf is this
+# [warn] kq_init: detected broken kqueue; not using.: File exists
+# Don't remove till tmux forums say so: https://github.com/tmux/tmux/issues/475
+export EVENT_NOKQUEUE=1
+
+# App shortcuts
+alias chrome="open -a /Applications/Google\ Chrome.app"
+alias firefox="open -a /Applications/Firefox.app/"
+alias safari="open -a safari"
+alias vlc="open -a /Applications/VLC.app"
+
+# vlc shortcut to radio
+# Retired after rockradio removed radio links
+# alias goradio-blues="/Applications/VLC.app/Contents/MacOS/VLC ~/Music/Radios\ and\ Playlists/ROCKRADIO.COM/Blues\ Rock/ROCKRADIO.COM\ -\ Blues\ Rock.pls "
+
+# firefox tabs
+# Retired, I use chrome now.
+# alias gofirefox="/Applications/Firefox.app/Contents/MacOS/firefox -new-tab -url http://gmail.com/ -new-tab -url http://facebook.com/ -new-tab -url http://quora.com/ &"
+
+# Opening terminal and typing w-i-f-tab-enter
+# is faster and more async than using status bar
+wifi_reset() {
+	networksetup -setairportpower en0 off
+	networksetup -setairportpower en0 on
+}
