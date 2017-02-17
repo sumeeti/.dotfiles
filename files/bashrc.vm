@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# Anything to do with virtual machines (or virtual envs, lol), go here.
 
 # Geddit? Geddit? DIGITAL OCEAN
 # No, I don't own that, it's overridden in vhosts

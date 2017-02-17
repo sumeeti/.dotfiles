@@ -1,4 +1,7 @@
 #!/bin/sh
+#
+# If anything is expected to be installed before an alias or script can be used, put it here
+# Add a link to whatever needs to be installed
 
 # Shortcut to download subtitles
 # https://github.com/manojmj92/subtitle-downloader/blob/master/subtitle-downloader.py
@@ -20,7 +23,7 @@ alias free='~/workplace/executables/free'
 alias betty='/Users/harmansingh/betty/main.rb'
 
 # Look Ma, I can send files to my Kindle directly from command line!
-# brew install mutt
+# Use brew for mutt
 kindle(){
 	echo "" | mutt -a "$1" -- thatharmansingh@kindle.com
 }
@@ -30,6 +33,7 @@ kindle_convert(){
 }
 
 # Wikipedia in the terminal
+# Use brew for lynx
 # No, I've never seriously used this
 wiki(){
 	lynx http://en.wikipedia.org/wiki/Special:Search?search=$(echo $@ | sed 's/ /+/g')

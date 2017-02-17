@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# Small changes that make typical Unix use slightly easier, go here.
 
 #Terminal be pretty one day
 export CLICOLOR=1

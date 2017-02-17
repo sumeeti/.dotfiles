@@ -1,4 +1,7 @@
 #!/bin/sh
+#
+# Most of this is unusable now, and commented out to allow reuse of names
+# Kept for sentimental reasons
 
 #shortcut to ssh
 # alias gossh="ssh dev@10.1.6.116"

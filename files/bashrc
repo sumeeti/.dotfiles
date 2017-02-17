@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# Categorisation happens here. Keep it clean.
 
 # Pretty
 source_if() {
