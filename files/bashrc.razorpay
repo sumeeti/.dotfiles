@@ -23,6 +23,36 @@ function clear_log() {
 	> /Users/harmansingh/workplace/razorpay/api/storage/logs/instance.json
 }
 
+# Checks if Rzp Api is serving the same commit on all instances
+function rzp_api_check() {
+	if [ $# -eq 0 ]
+	then
+		limit=10
+	else
+		limit=$1
+	fi
+	expected_commit=$(curl -s https://api.razorpay.com/commit.txt)
+	unexpected_commit=$expected_commit
+	fault=0
+	for ((n=0;n<$limit;n++))
+	do
+		new_commit=$(curl -s https://api.razorpay.com/commit.txt)
+		if [ "$new_commit" != "$expected_commit" ]
+		then
+			((fault++))
+			unexpected_commit=$new_commit
+		fi
+	done
+	failure=$((100*$fault/$limit))
+	echo "Tried $limit times. Got the wrong commit $fault times."
+	if [ "$unexpected_commit" != "$expected_commit" ]
+	then
+		echo "That's $failure%"
+		echo $expected_commit
+		echo $unexpected_commit
+	fi
+}
+
 #reach office and be lazy immediately
 gorazorpay_gogogo(){
 	gocodebase
