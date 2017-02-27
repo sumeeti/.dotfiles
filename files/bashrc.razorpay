@@ -17,87 +17,87 @@ ulimit -S -n 2700
 
 # Clears all logged info in razorpay/api
 function clear_log() {
-	> /Users/harmansingh/workplace/razorpay/api/storage/logs/trace.log
-	> /Users/harmansingh/workplace/razorpay/api/storage/logs/laravel.log
-	> /Users/harmansingh/workplace/razorpay/api/storage/logs/cron.log
-	> /Users/harmansingh/workplace/razorpay/api/storage/logs/instance.json
+  > /Users/harmansingh/workplace/razorpay/api/storage/logs/trace.log
+  > /Users/harmansingh/workplace/razorpay/api/storage/logs/laravel.log
+  > /Users/harmansingh/workplace/razorpay/api/storage/logs/cron.log
+  > /Users/harmansingh/workplace/razorpay/api/storage/logs/instance.json
 }
 
 # Checks if Rzp Api is serving the same commit on all instances
 function rzp_api_check() {
-	if [ $# -eq 0 ]
-	then
-		limit=10
-	else
-		limit=$1
-	fi
-	expected_commit=$(curl -s https://api.razorpay.com/commit.txt)
-	unexpected_commit=$expected_commit
-	fault=0
-	for ((n=0;n<$limit;n++))
-	do
-		new_commit=$(curl -s https://api.razorpay.com/commit.txt)
-		if [ "$new_commit" != "$expected_commit" ]
-		then
-			((fault++))
-			unexpected_commit=$new_commit
-		fi
-	done
-	failure=$((100*$fault/$limit))
-	echo "Tried $limit times. Got the wrong commit $fault times."
-	if [ "$unexpected_commit" != "$expected_commit" ]
-	then
-		echo "That's $failure%"
-		echo $expected_commit
-		echo $unexpected_commit
-	fi
+  if [ $# -eq 0 ]
+  then
+    limit=10
+  else
+    limit=$1
+  fi
+  expected_commit=$(curl -s https://api.razorpay.com/commit.txt)
+  unexpected_commit=$expected_commit
+  fault=0
+  for ((n=0;n<$limit;n++))
+  do
+    new_commit=$(curl -s https://api.razorpay.com/commit.txt)
+    if [ "$new_commit" != "$expected_commit" ]
+    then
+      ((fault++))
+      unexpected_commit=$new_commit
+    fi
+  done
+  failure=$((100*$fault/$limit))
+  echo "Tried $limit times. Got the wrong commit $fault times."
+  if [ "$unexpected_commit" != "$expected_commit" ]
+  then
+    echo "That's $failure%"
+    echo $expected_commit
+    echo $unexpected_commit
+  fi
 }
 
 #reach office and be lazy immediately
 gorazorpay_gogogo(){
-	gocodebase
+  gocodebase
 
-	#run tests in new terminal window
-	# osascript -e '
-	# tell application "Terminal"
-	# 	do script "cd ~/workplace/razorpay/api; phpunit;"
-	# end tell '
+  #run tests in new terminal window
+  # osascript -e '
+  # tell application "Terminal"
+  #   do script "cd ~/workplace/razorpay/api; phpunit;"
+  # end tell '
 
-	chrome "https://mail.google.com/mail/u/1/#inbox" \
-			"https://github.com/razorpay/api/pulls" \
-			"https://splunk-mumbai.razorpay.com/en-US/app/search/api_errors?earliest=0&latest="
+  chrome "https://mail.google.com/mail/u/1/#inbox" \
+      "https://github.com/razorpay/api/pulls" \
+      "https://splunk-mumbai.razorpay.com/en-US/app/search/api_errors?earliest=0&latest="
 
-	open_working
+  open_working
 
-	open /Applications/Slack.app
-	open /Applications/Spotify.app
-	open /Applications/Franz.app
+  open /Applications/Slack.app
+  open /Applications/Spotify.app
+  open /Applications/Franz.app
 }
 
 # Nonsense that doesn't really work
-# 
+#
 update_working() {
-	WHAT_IM_WORKING_ON=()
-	while read -r line; do WHAT_IM_WORKING_ON+=($line); done < ~/.pulls
+  WHAT_IM_WORKING_ON=()
+  while read -r line; do WHAT_IM_WORKING_ON+=($line); done < ~/.pulls
 }
 WHAT_IM_WORKING_ON=()
 update_working
 working() {
-	echo $1 >> ~/.pulls
-	sort -u ~/.pulls > ~/.pulls.tmp
-	cat ~/.pulls.tmp > ~/.pulls
-	rm ~/.pulls.tmp
-	update_working
+  echo $1 >> ~/.pulls
+  sort -u ~/.pulls > ~/.pulls.tmp
+  cat ~/.pulls.tmp > ~/.pulls
+  rm ~/.pulls.tmp
+  update_working
 }
 notworking() {
-	sed '/$1/d' ~/.pulls > ~/.pulls.tmp
-	cat ~/.pulls.tmp > ~/.pulls
-	rm ~/.pulls.tmp
-	update_working
+  sed '/$1/d' ~/.pulls > ~/.pulls.tmp
+  cat ~/.pulls.tmp > ~/.pulls
+  rm ~/.pulls.tmp
+  update_working
 }
 open_working() {
-	for t in "${WHAT_IM_WORKING_ON[@]}"
-	do
-		chrome "https://github.com/razorpay/api/pull/$t"
-	done
+  for t in "${WHAT_IM_WORKING_ON[@]}"
+  do
+    chrome "https://github.com/razorpay/api/pull/$t"
+  done
 }

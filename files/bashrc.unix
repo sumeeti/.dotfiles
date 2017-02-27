@@ -16,21 +16,21 @@ alias diff='colordiff'
 
 # Look up IPs easily
 lookup(){
-	whois $1
-	curl -X GET "https://ipinfo.io/$1"
-	echo
+  whois $1
+  curl -X GET "https://ipinfo.io/$1"
+  echo
 }
 
 # If you're checking path for something, I suspect
 # what you really want to do is copy it somewhere else.
 # Let me strip that newline for you.
 path(){
-	if [ $# -eq 0 ]
-	then
-		pwd | tee /dev/tty | tr -d '[:space:]' | pbcopy
-	else
-		realpath $1 | tee /dev/tty | tr -d '[:space:]' | pbcopy
-	fi
+  if [ $# -eq 0 ]
+  then
+    pwd | tee /dev/tty | tr -d '[:space:]' | pbcopy
+  else
+    realpath $1 | tee /dev/tty | tr -d '[:space:]' | pbcopy
+  fi
 }
 
 # -.-
@@ -41,24 +41,24 @@ mkcd () { mkdir -p "$@" && cd "$@"; }
 
 # Gently murder the nice apps
 close(){
-	if [ $# -eq 0 ]
-		then echo "Usage: ${FUNCNAME[0]} [PATTERN]"
-	elif [[ -n $(pgrep $1) ]]
-		then kill $(pgrep $1); echo "Quit $1."
-	else
-		echo "No instances of $1 open."
-	fi
+  if [ $# -eq 0 ]
+    then echo "Usage: ${FUNCNAME[0]} [PATTERN]"
+  elif [[ -n $(pgrep $1) ]]
+    then kill $(pgrep $1); echo "Quit $1."
+  else
+    echo "No instances of $1 open."
+  fi
 }
 
 # Brutally extinguish all processes that match a pattern
 hunt(){
-	if [ $# -eq 0 ]
-		then echo "Usage: ${FUNCNAME[0]} [PATTERN]"
-	elif [[ -n $(pgrep $1) ]]
-		then sudo kill -9 $(pgrep $1); echo "$1 has been taken care of."
-	else
-		echo "ERROR: No matching processes. What are you hunting?"
-	fi
+  if [ $# -eq 0 ]
+    then echo "Usage: ${FUNCNAME[0]} [PATTERN]"
+  elif [[ -n $(pgrep $1) ]]
+    then sudo kill -9 $(pgrep $1); echo "$1 has been taken care of."
+  else
+    echo "ERROR: No matching processes. What are you hunting?"
+  fi
 }
 
 # Find out who you want to kill

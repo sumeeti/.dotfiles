@@ -25,16 +25,16 @@ alias betty='/Users/harmansingh/betty/main.rb'
 # Look Ma, I can send files to my Kindle directly from command line!
 # Use brew for mutt
 kindle(){
-	echo "" | mutt -a "$1" -- thatharmansingh@kindle.com
+  echo "" | mutt -a "$1" -- thatharmansingh@kindle.com
 }
 # For PDFs
 kindle_convert(){
-	echo "" | mutt -a "$1" -s "convert" -- thatharmansingh@kindle.com
+  echo "" | mutt -a "$1" -s "convert" -- thatharmansingh@kindle.com
 }
 
 # Wikipedia in the terminal
 # Use brew for lynx
 # No, I've never seriously used this
 wiki(){
-	lynx http://en.wikipedia.org/wiki/Special:Search?search=$(echo $@ | sed 's/ /+/g')
+  lynx http://en.wikipedia.org/wiki/Special:Search?search=$(echo $@ | sed 's/ /+/g')
 }

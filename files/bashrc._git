@@ -10,7 +10,7 @@ source_if ~/.git-completion.bash
 # Moved to .vars
 
 function git_branch() {
-	git rev-parse --abbrev-ref HEAD 2> /dev/null
+  git rev-parse --abbrev-ref HEAD 2> /dev/null
 }
 
 alias gs="git status"
