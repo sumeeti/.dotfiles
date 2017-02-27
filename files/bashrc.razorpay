@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Company related things, that can probably be remove or repurposed when I leave, go here.
+# Company related things, that can probably be removed or repurposed when I leave, go here.
 
 # Terminal jump
 alias razorpay="cd ~/workplace/razorpay/api"

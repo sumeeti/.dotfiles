@@ -19,6 +19,8 @@ source_if ~/.dotfiles/files/bashrc.path                 # $PATH config
 source_if ~/.dotfiles/files/bashrc.vars                 # Env variables for various projects
 source_if ~/.dotfiles/files/bashrc.vm                   # VM things
 
+alias dot="sublime ~/.dotfiles"
+
 # Tennis DB and AR mimic
 tennis(){
     cd ~/workplace/tennis

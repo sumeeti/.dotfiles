@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# Things that only work on Macs, go here
 
 # Horrible and slow, use ctrl+shift+power instead.
 alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'

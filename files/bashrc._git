@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Git related scripts and aliases
+# Git related scripts and aliases go here
 
 # https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
 source_if ~/.git-completion.bash
