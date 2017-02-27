@@ -19,3 +19,6 @@ If you've got Dropbox or Drive set up, it might be a good idea to keep `bashrc.v
 ln -s ~/Dropbox/vars/bashrc.vars ~/.dotfiles/files/bashrc.vars
 ```
 This way you don't need to worry about those secrets being the only part of the repo not backed up on Github.
+
+### TODO
+* Add setup script. Lol.

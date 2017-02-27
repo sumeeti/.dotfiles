@@ -16,4 +16,7 @@ PATH="${PATH}:/usr/local/opt/coreutils/libexec/gnubin"
 # Mera laptop hai tujhe kya?
 PATH="${PATH}:/usr/local/sbin"
 
+# Executables
+PATH="${PATH}:~/workplace/executables"
+
 export PATH
