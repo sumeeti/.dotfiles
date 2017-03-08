@@ -33,8 +33,11 @@ brew_if mutt
 brew_if lynx
 
 add_to_executables() {
-  wget -O ~/workplace/executables/$1 $2
-  chmod +x ~/workplace/executables/$1
+  if [ ! -f ~/workplace/executables/$1]
+  then
+    wget -O ~/workplace/executables/$1 $2
+    chmod +x ~/workplace/executables/$1
+  fi
 }
 
 # Subtitle script
@@ -45,5 +48,7 @@ add_to_executables speedtest https://raw.githubusercontent.com/sivel/speedtest-c
 add_to_executables freecheck http://myunixdiary.weebly.com/uploads/7/4/6/9/7469689/free.py.txt
 # Subtitle sync
 add_to_executables srt https://raw.githubusercontent.com/riobard/srt.py/master/srt.py
+# Mailqun help script
+add_to_executables mailqun https://raw.githubusercontent.com/harman28/mailqun/master/mailqun
 
 
