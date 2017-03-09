@@ -3,9 +3,8 @@
 My dotfiles.
 
 ```sh
-> cd
-> git clone https://github.com/harman28/.dotfiles.git
-> echo "source ~/.dotfiles/bashrc" >> ~/.bashrc
+> git clone https://github.com/harman28/.dotfiles.git ~/.dotfiles
+> echo 'source ~/.dotfiles/bashrc' >> ~/.bashrc
 ```
 
 You're done.
