@@ -2,6 +2,8 @@
 #
 # This tries to set things up. It will not do everything. Nobody can do everything.
 
+echo "source ~/.dotfiles/bashrc" >> ~/.bashrc
+
 brew help 1>2
 if [[ 127 = $? ]]
 then

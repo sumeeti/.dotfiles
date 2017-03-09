@@ -2,13 +2,18 @@
 
 My dotfiles.
 
-```
+```sh
 > cd
 > git clone https://github.com/harman28/.dotfiles.git
 > echo "source ~/.dotfiles/bashrc" >> ~/.bashrc
 ```
 
 You're done.
+
+For the full setup, do this instead
+```sh
+> . ~/.dotfiles/setup.sh
+```
 
 ### That `bashrc.vars` file
 I use the `vars` to hold secrets, i.e. usually passwords, access tokens and the like.
