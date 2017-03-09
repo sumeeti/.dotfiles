@@ -4,10 +4,10 @@
 
 # Geddit? Geddit? DIGITAL OCEAN
 # No, I don't own that, it's overridden in vhosts
-alias boondh="ssh harman@thatharmansingh.com"
+alias boondh='ssh harman@thatharmansingh.com'
 
 # VM scripts
-alias gossh="ssh harman@139.59.39.63"
+alias gossh='ssh harman@139.59.39.63'
 #mount remote vm using sshfs
 mountvm(){
   if [ $# -eq 0 ]
@@ -15,11 +15,11 @@ mountvm(){
     then
       if [[ -n $(ls ~/workplace/vm) ]]
         then
-          echo "~/workplace/vm is already a mount point. Unmounting that first."
+          echo '~/workplace/vm is already a mount point. Unmounting that first.'
           umount ~/workplace/vm
       fi
       sshfs -o follow_symlinks,transform_symlinks harman@139.59.39.63:/home/harman ~/workplace/vm
-      echo "Moving to mount point..."
+      echo 'Moving to mount point...'
       cd ~/workplace/vm;
     else
       sshfs -o follow_symlinks,transform_symlinks harman@139.59.39.63:/home/harman $1
@@ -31,7 +31,7 @@ unmountvm(){
     then
       umount ~/workplace/vm
     else
-      echo "~/workplace/vm is not a mount point."
+      echo '~/workplace/vm is not a mount point.'
   fi
 }
 

@@ -12,10 +12,10 @@ alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/
 export EVENT_NOKQUEUE=1
 
 # App shortcuts
-alias chrome="open -a /Applications/Google\ Chrome.app"
-alias firefox="open -a /Applications/Firefox.app/"
-alias safari="open -a safari"
-alias vlc="open -a /Applications/VLC.app"
+alias chrome='open -a /Applications/Google\ Chrome.app'
+alias firefox='open -a /Applications/Firefox.app/'
+alias safari='open -a safari'
+alias vlc='open -a /Applications/VLC.app'
 
 # vlc shortcut to radio
 # Retired after rockradio removed radio links

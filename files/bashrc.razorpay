@@ -3,14 +3,14 @@
 # Company related things, that can probably be removed or repurposed when I leave, go here.
 
 # Terminal jump
-alias razorpay="cd ~/workplace/razorpay/api"
-alias dashboard="cd ~/workplace/razorpay/dashboard"
+alias razorpay='cd ~/workplace/razorpay/api'
+alias dashboard='cd ~/workplace/razorpay/dashboard'
 
 # Gogogo
-alias gocodebase="cd ~/workplace/razorpay/api; sublime .;"
+alias gocodebase='cd ~/workplace/razorpay/api; sublime .;'
 
 # CLI
-alias tinker="razorpay; php artisan tinker;"
+alias tinker='razorpay; php artisan tinker;'
 
 #
 ulimit -S -n 2700
@@ -63,9 +63,9 @@ gorazorpay_gogogo(){
   #   do script "cd ~/workplace/razorpay/api; phpunit;"
   # end tell '
 
-  chrome "https://mail.google.com/mail/u/1/#inbox" \
-      "https://github.com/razorpay/api/pulls" \
-      "https://splunk-mumbai.razorpay.com/en-US/app/search/api_errors?earliest=0&latest="
+  chrome 'https://mail.google.com/mail/u/1/#inbox' \
+      'https://github.com/razorpay/api/pulls' \
+      'https://splunk-mumbai.razorpay.com/en-US/app/search/api_errors?earliest=0&latest='
 
   open_working
 

@@ -5,7 +5,7 @@
 
 #shortcut to ssh
 # alias gossh="ssh dev@10.1.6.116"
-alias tunnel="osascript ~/.tunnelblick-housing.scpt"
+alias tunnel='osascript ~/.tunnelblick-housing.scpt'
 
 # tunnel(){
 #   osacript -e "tell application \"Tunnelblick\""

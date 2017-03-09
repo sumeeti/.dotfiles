@@ -13,21 +13,21 @@ function git_branch() {
   git rev-parse --abbrev-ref HEAD 2> /dev/null
 }
 
-alias gs="git status"
-alias GS="git status"
-alias gd="git diff"
-alias gdc="git diff --cached"
-alias ga="git add"
-alias gl="git log"
+alias gs='git status'
+alias GS='git status'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias ga='git add'
+alias gl='git log'
 alias glp="git log --pretty=format:'%h - %ad - %an - %s' --date=short"
-alias gb="git branch"
-alias gcm="git commit -m"
-alias gco="git checkout"
-alias gstash="git stash"
-alias gp="git pull"
-alias gpom="git pull origin master"
+alias gb='git branch'
+alias gcm='git commit -m'
+alias gco='git checkout'
+alias gstash='git stash'
+alias gp='git pull'
+alias gpom='git pull origin master'
 alias gpo="git push origin $(git_branch)"
-alias gmm="git merge master"
+alias gmm='git merge master'
 
 # Makes my git prompt beautiful
 function git_branch_paran() {

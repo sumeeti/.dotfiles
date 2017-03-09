@@ -2,12 +2,12 @@
 #
 # This tries to set things up. It will not do everything. Nobody can do everything.
 
-echo "source ~/.dotfiles/bashrc" >> ~/.bashrc
+echo 'source ~/.dotfiles/bashrc' >> ~/.bashrc
 
 brew help 1>2
 if [[ 127 = $? ]]
 then
-  echo "Installing brew"
+  echo 'Installing brew'
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
