@@ -28,6 +28,7 @@ alias gp='git pull'
 alias gpom='git pull origin master'
 alias gpo="git push origin $(git_branch)"
 alias gmm='git merge master'
+alias gcl='git clone'
 
 # Makes my git prompt beautiful
 function git_branch_paran() {
