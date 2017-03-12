@@ -4,8 +4,9 @@
 
 echo 'source ~/.dotfiles/bashrc' >> ~/.bashrc
 
-brew help 1>2
-if [[ 127 = $? ]]
+which brew 1>2
+# If brew isn't located, exit code is 1
+if [[ 1 = $? ]]
 then
   echo 'Installing brew'
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -52,5 +53,3 @@ add_to_executables freecheck http://myunixdiary.weebly.com/uploads/7/4/6/9/74696
 add_to_executables srt https://raw.githubusercontent.com/riobard/srt.py/master/srt.py
 # Mailqun help script
 add_to_executables mailqun https://raw.githubusercontent.com/harman28/mailqun/master/mailqun
-
-
