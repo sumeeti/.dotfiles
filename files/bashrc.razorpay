@@ -23,6 +23,8 @@ function clear_log() {
   > /Users/harmansingh/workplace/razorpay/api/storage/logs/instance.json
 }
 
+alias clear_cache="redis-cli flushall"
+
 # Checks if Rzp Api is serving the same commit on all instances
 function rzp_api_check() {
   if [ $# -eq 0 ]
