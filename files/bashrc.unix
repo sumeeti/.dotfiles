@@ -14,6 +14,9 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 # How  did anyone function without this?
 alias diff='colordiff'
 
+# Confirmation
+alias rm='rm –I'
+
 # Ruby inline
 alias rube="ruby -e"
 
