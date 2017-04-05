@@ -15,6 +15,9 @@ alias tinker='razorpay; php artisan tinker;'
 #
 ulimit -S -n 2700
 
+# Need a coverage driver to run tests, here's where you can enable xdebug
+alias php_coverage_driver="sublime /usr/local/etc/php/7.0/conf.d/ext-xdebug.ini"
+
 # Clears all logged info in razorpay/api
 function clear_log() {
   > /Users/harmansingh/workplace/razorpay/api/storage/logs/trace.log
