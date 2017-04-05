@@ -15,6 +15,9 @@ export HISTCONTROL=ignoreboth
 # How  did anyone function without this?
 alias diff='colordiff'
 
+# Stuff I don't want showing up in the git repo
+alias rc='sublime ~/.bashrc'
+
 # Confirmation
 # alias rm='rm –i '
 
