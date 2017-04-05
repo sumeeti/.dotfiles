@@ -3,6 +3,10 @@
 # If anything is expected to be installed before an alias or script can be used, put it here
 # Add a link to whatever needs to be installed. Try adding it to the setup file too.
 
+# Of course, you have sublime
+# The executable assumes that sublime is called using 'sublime' and not 'subl'
+export EDITOR=/Users/harmansingh/workplace/executables/sublime_wait
+
 # Shortcut to download subtitles
 # https://raw.githubusercontent.com/manojmj92/subtitle-downloader/master/subtitle-downloader.py
 alias subtitle='subtitle-downloader'

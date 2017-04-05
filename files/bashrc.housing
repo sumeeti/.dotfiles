@@ -5,7 +5,7 @@
 
 #shortcut to ssh
 # alias gossh="ssh dev@10.1.6.116"
-alias tunnel='osascript ~/.tunnelblick-housing.scpt'
+# alias tunnel='osascript ~/.tunnelblick-housing.scpt'
 
 # tunnel(){
 #   osacript -e "tell application \"Tunnelblick\""
@@ -98,9 +98,9 @@ alias tunnel='osascript ~/.tunnelblick-housing.scpt'
 # }
 
 #visualize polygons using geojsonlint
-plot_polygon(){
-  #assumes you've run st_asgeojson(st_transform(polygon,4326)) in psql and redirected the output to snippets/plot.geojson
-  #TODO Handle multiple polygon geojsons
-  grep {.*} ~/workspace/vm/snippets/plot.geojson | pbcopy
-  open -a /Applications/Google\ Chrome.app http://geojsonlint.com/ #http://jsonlint.com/
-}
+# plot_polygon(){
+#   #assumes you've run st_asgeojson(st_transform(polygon,4326)) in psql and redirected the output to snippets/plot.geojson
+#   #TODO Handle multiple polygon geojsons
+#   grep {.*} ~/workspace/vm/snippets/plot.geojson | pbcopy
+#   open -a /Applications/Google\ Chrome.app http://geojsonlint.com/ #http://jsonlint.com/
+# }

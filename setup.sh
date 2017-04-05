@@ -53,3 +53,16 @@ add_to_executables freecheck http://myunixdiary.weebly.com/uploads/7/4/6/9/74696
 add_to_executables srt https://raw.githubusercontent.com/riobard/srt.py/master/srt.py
 # Mailqun help script
 add_to_executables mailqun https://raw.githubusercontent.com/harman28/mailqun/master/mailqun
+
+# A bash executable that runs sublime with the --wait option
+# Perfect for using as your default editor
+# Assumes the sublime executable is called 'sublime' and not 'subl'
+echo -e '#!'"/bin/sh\nsublime --wait \$*" > ~/workplace/executables/sublime_wait
+chmod +x ~/workplace/executables/sublime_wait
+
+# Set up the tennis DB
+mkdir -p workplace/tennis
+cd workplace/tennis
+git clone https://github.com/harman28/tennis_atp.git
+cd tennis_atp
+bash setup/PostgreSQL/convert_postgres.sh
