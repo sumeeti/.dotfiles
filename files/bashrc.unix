@@ -10,12 +10,13 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export HISTSIZE=999999999999999999999999
 export HISTFILESIZE=999999999999999999999999
 export HISTTIMEFORMAT="%d/%m/%y %T "
+export HISTCONTROL=ignoreboth
 
 # How  did anyone function without this?
 alias diff='colordiff'
 
 # Confirmation
-alias rm='rm –I'
+# alias rm='rm –i '
 
 # Ruby inline
 alias rube="ruby -e"
