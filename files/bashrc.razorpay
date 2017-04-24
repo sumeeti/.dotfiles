@@ -12,6 +12,10 @@ alias gocodebase='cd ~/workplace/razorpay/api; sublime .;'
 # CLI
 alias tinker='razorpay; php artisan tinker;'
 
+# PHPUNIT
+alias pudvf="phpunit --debug --verbose --filter"
+alias pustop="phpunit --debug --verbose --stop-on-failure --stop-on-error --filter"
+
 #
 ulimit -S -n 2700
 
