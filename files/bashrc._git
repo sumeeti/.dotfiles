@@ -28,15 +28,17 @@ alias gp='git pull'
 alias gpom='git pull origin master'
 alias gpo="git push origin $(git_branch)"
 alias gmm='git merge master'
-alias gcl='git clone'
 
 # Makes my git prompt beautiful
 function git_branch_paran() {
   git rev-parse 2> /dev/null 1>&2 && echo "(`git_branch`)"
 }
-
 function prompt(){
   PS1="\[\033[01;34m\]\u\[\033[01;37m\]@\h\[\033[01;32m\] \W $(git_branch_paran)\[\033[00m\] > "
+}
+
+function gcl() {
+  git clone "$1" && cd "$(basename "$1" | cut -f 1 -d '.')"
 }
 
 export PROMPT_COMMAND=prompt
