@@ -41,4 +41,8 @@ function gcl() {
   git clone "$1" && cd "$(basename "$1" | cut -f 1 -d '.')"
 }
 
+function gco_date() {
+  git checkout `git rev-list -n 1 --before="$1" master`
+}
+
 export PROMPT_COMMAND=prompt
