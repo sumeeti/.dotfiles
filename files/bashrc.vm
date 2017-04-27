@@ -3,13 +3,13 @@
 # Anything to do with virtual machines (or virtual envs, lol), go here.
 
 # Geddit? Geddit? DIGITAL OCEAN
-# No, I don't own that, it's overridden in vhosts
+# No, I don't own that, it's overridden in /etc/hosts
 alias boondh='ssh harman@thatharmansingh.com'
 
 # VM scripts
 alias gossh='ssh harman@139.59.39.63'
 #mount remote vm using sshfs
-mountvm(){
+function mountvm(){
   if [ $# -eq 0 ]
     #then echo "Usage: ${FUNCNAME[0]} [MOUNTING_POINT]"
     then
@@ -26,7 +26,7 @@ mountvm(){
       cd $1
   fi
 }
-unmountvm(){
+function unmountvm(){
   if [[ -n $(ls ~/workplace/vm) ]]
     then
       umount ~/workplace/vm

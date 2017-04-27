@@ -27,7 +27,7 @@ alias vlc='open -a /Applications/VLC.app'
 
 # Opening terminal and typing w-i-f-tab-enter
 # is faster and more async than using status bar
-wifi_reset() {
+function wifi_reset() {
   networksetup -setairportpower en0 off
   networksetup -setairportpower en0 on
 }

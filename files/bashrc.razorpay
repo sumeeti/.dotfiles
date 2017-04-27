@@ -63,7 +63,7 @@ function rzp_api_check() {
 }
 
 #reach office and be lazy immediately
-gorazorpay_gogogo(){
+function gorazorpay_gogogo(){
   gocodebase
 
   #run tests in new terminal window
@@ -85,28 +85,28 @@ gorazorpay_gogogo(){
 
 # Nonsense that doesn't really work
 #
-update_working() {
-  WHAT_IM_WORKING_ON=()
-  while read -r line; do WHAT_IM_WORKING_ON+=($line); done < ~/.pulls
-}
-WHAT_IM_WORKING_ON=()
-update_working
-working() {
-  echo $1 >> ~/.pulls
-  sort -u ~/.pulls > ~/.pulls.tmp
-  cat ~/.pulls.tmp > ~/.pulls
-  rm ~/.pulls.tmp
-  update_working
-}
-notworking() {
-  sed '/$1/d' ~/.pulls > ~/.pulls.tmp
-  cat ~/.pulls.tmp > ~/.pulls
-  rm ~/.pulls.tmp
-  update_working
-}
-open_working() {
-  for t in "${WHAT_IM_WORKING_ON[@]}"
-  do
-    chrome "https://github.com/razorpay/api/pull/$t"
-  done
-}
+# update_working() {
+#   WHAT_IM_WORKING_ON=()
+#   while read -r line; do WHAT_IM_WORKING_ON+=($line); done < ~/.pulls
+# }
+# WHAT_IM_WORKING_ON=()
+# update_working
+# working() {
+#   echo $1 >> ~/.pulls
+#   sort -u ~/.pulls > ~/.pulls.tmp
+#   cat ~/.pulls.tmp > ~/.pulls
+#   rm ~/.pulls.tmp
+#   update_working
+# }
+# notworking() {
+#   sed '/$1/d' ~/.pulls > ~/.pulls.tmp
+#   cat ~/.pulls.tmp > ~/.pulls
+#   rm ~/.pulls.tmp
+#   update_working
+# }
+# open_working() {
+#   for t in "${WHAT_IM_WORKING_ON[@]}"
+#   do
+#     chrome "https://github.com/razorpay/api/pull/$t"
+#   done
+# }

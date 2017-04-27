@@ -36,13 +36,14 @@ function git_branch_paran() {
 function prompt(){
   PS1="\[\033[01;34m\]\u\[\033[01;37m\]@\h\[\033[01;32m\] \W $(git_branch_paran)\[\033[00m\] > "
 }
+export PROMPT_COMMAND=prompt
 
+# Git clone, and then cd into project directory
 function gcl() {
   git clone "$1" && cd "$(basename "$1" | cut -f 1 -d '.')"
 }
 
+# Git checkout by date, instead of commit
 function gco_date() {
   git checkout `git rev-list -n 1 --before="$1" master`
 }
-
-export PROMPT_COMMAND=prompt

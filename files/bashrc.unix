@@ -25,7 +25,7 @@ alias rc='sublime ~/.bashrc'
 alias rube="ruby -e"
 
 # Look up IPs easily
-lookup(){
+function lookup(){
   whois $1
   curl -X GET "https://ipinfo.io/$1"
   echo
@@ -34,7 +34,7 @@ lookup(){
 # If you're checking path for something, I suspect
 # what you really want to do is copy it somewhere else.
 # Let me strip that newline for you.
-path(){
+function path(){
   if [ $# -eq 0 ]
   then
     pwd | tee /dev/tty | tr -d '[:space:]' | pbcopy
@@ -47,10 +47,10 @@ path(){
 alias CD='cd'
 
 # Make dir and cd into it. Looks like gaali but isn't.
-mkcd () { mkdir -p "$@" && cd "$@"; }
+function mkcd () { mkdir -p "$@" && cd "$@"; }
 
 # Gently murder the nice apps
-close(){
+function close(){
   if [ $# -eq 0 ]
     then echo "Usage: ${FUNCNAME[0]} [PATTERN]"
   elif [[ -n $(pgrep $1) ]]
@@ -61,7 +61,7 @@ close(){
 }
 
 # Brutally extinguish all processes that match a pattern
-hunt(){
+function hunt(){
   if [ $# -eq 0 ]
     then echo "Usage: ${FUNCNAME[0]} [PATTERN]"
   elif [[ -n $(pgrep $1) ]]

@@ -3,7 +3,7 @@
 # Categorisation happens here. Keep it clean.
 
 # Pretty
-source_if() {
+function source_if() {
   if [ -f $1 ]; then
     source $1
   fi

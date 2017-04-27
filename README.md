@@ -5,6 +5,7 @@ My dotfiles.
 ```sh
 > git clone https://github.com/harman28/.dotfiles.git ~/.dotfiles
 > echo 'source ~/.dotfiles/bashrc' >> ~/.bashrc
+> sudo cat ~/.dotfiles/files/hosts >> /etc/hosts
 ```
 
 You're done.
@@ -13,6 +14,7 @@ For the full setup, do this instead
 ```sh
 > . ~/.dotfiles/setup.sh
 ```
+It is completely untested though, so good luck with that.
 
 ### That `bashrc.vars` file
 I use the `vars` to hold secrets, i.e. usually passwords, access tokens and the like.
@@ -25,4 +27,4 @@ ln -s ~/Dropbox/vars/bashrc.vars ~/.dotfiles/files/bashrc.vars
 This way you don't need to worry about those secrets being the only part of the repo not backed up on Github.
 
 ### TODO
-* Add setup script. Lol.
+* ~~Add setup script.~~ Lol.
