@@ -34,6 +34,7 @@ brew_if sshfs
 brew_if tmux
 brew_if mutt
 brew_if lynx
+brew_if ncdu
 
 add_to_executables() {
   if [ ! -f ~/workplace/executables/$1]
